@@ -12,6 +12,11 @@
     "moduleResolution": "node",
     // Для абсолютного импорта
     "baseUrl": ".",
+    "paths": {
+      "src/*": [
+        "src/*"
+      ]
+    },
     // esModuleInterop позволяет работать с пакетами с помощью import вместо require()
     "esModuleInterop": true,
     // Позволяет использовать обычные import без * для библиотек, рассчитанных на nodeJs

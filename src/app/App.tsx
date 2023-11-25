@@ -1,7 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
-import { MainPageAsync } from './pages/MainPage/MainPage.async';
-import { AboutPageAsync } from './pages/AboutPage/AboutPage.async';
 import { Suspense } from 'react';
+import './styles/index.scss';
+import { AboutPage } from 'src/pages/AboutPage';
+import { MainPage } from 'src/pages/MainPage';
 
 const App = () => {
 	return (
@@ -9,11 +10,11 @@ const App = () => {
 			<Routes>
 				<Route
 					path={'/about'}
-					element={<AboutPageAsync />}
+					element={<AboutPage />}
 				/>
 				<Route
 					path={'/'}
-					element={<MainPageAsync />}
+					element={<MainPage />}
 				/>
 			</Routes>
 		</Suspense>

@@ -1,4 +1,4 @@
-import { useThemeToggle } from '../../theme-provider';
+import { useThemeToggle } from '../../../app/providers/theme-provider';
 
 const MainPage = () => {
 	const toggleTheme = useThemeToggle();
@@ -7,7 +7,6 @@ const MainPage = () => {
 		<>
 			<p className='app'>Lira Earrings</p>
 			<button onClick={toggleTheme}>Переключить тему</button>
-
 		</>
 	);
 };
