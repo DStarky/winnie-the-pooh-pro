@@ -1,4 +1,4 @@
-import { useThemeToggle } from '../../../app/providers/theme-provider';
+import { useThemeToggle } from '../../../app/providers/ThemeProvider';
 
 const MainPage = () => {
 	const toggleTheme = useThemeToggle();
