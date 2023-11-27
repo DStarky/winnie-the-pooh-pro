@@ -1,0 +1,16 @@
+.root {
+  text-decoration: none;
+  font: var(--font-s);
+}
+
+.primary {
+  color: var(--text-color);
+
+  &.active {
+    color: var(--text-color-bold);
+  }
+}
+
+.secondary {
+  color: var(--text-color);
+}
