@@ -1,5 +1,5 @@
 [data-theme='dark'] {
-  --bg-color: #0a0a0a;
-  --primary-color: var(--white-color); 
-  --secondary-color: var(--light-gray);
+  --bg-color: var(--black-color);
+  --text-color: var(--text-gray-color); 
+  --heading-color: var(--white-color);
 }
