@@ -1,38 +1,39 @@
 :root {
   // TYPOGRAPHY
-  --font-family-main: 'Poppins', Arial, system-ui, sans-serif;
+  --font-family-main: 'Inter', Arial, system-ui, sans-serif;
+  --font-family-heading: 'Poppins', Arial, system-ui, sans-serif;
 
-  --font-size-s: 12px;
-  --font-line-s: 20px;
+  --font-size-xs: 12px;
+  --font-line-xs: 20px;
+  --font-xs: var(--font-size-xs) / var(--font-line-xs) var(--font-family-main);
+
+  --font-size-s: 14px;
+  --font-line-s: 24px;
   --font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
 
-  --font-size-m: 14px;
-  --font-line-m: 22px;
+  --font-size-m: 16px;
+  --font-line-m: 26px;
   --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
 
-  --font-size-l: 16px;
-  --font-line-l: normal;
-  --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+  --h1-size: 72px;
+  --h1-line: 76px;
+  --h1: var(--h1-size) / var(--h1-line) var(--font-family-heading);
 
-  --h1-size: 33px;
-  --h1-line: 43px;
-  --h1: var(--h1-size) / var(--h1-line) var(--font-family-main);
+  --h2-size: 40px;
+  --h2-line: 44px;
+  --h2: var(--h2-size) / var(--h2-line) var(--font-family-heading);
 
-  --h2-size: 26px;
-  --h2-line: 35px;
-  --h2: var(--h2-size) / var(--h2-line) var(--font-family-main);
+  --h3-size: 34px;
+  --h3-line: 38px;
+  --h3: var(--h3-size) / var(--h3-line) var(--font-family-heading);
 
-  --h3-size: 20px;
-  --h3-line: 26px;
-  --h3: var(--h3-size) / var(--h3-line) var(--font-family-main);
+  --h4-size: 28px;
+  --h4-line: 34px;
+  --h4: var(--h4-size) / var(--h4-line) var(--font-family-heading);
 
-  --h4-size: 20px;
-  --h4-line: 26px;
-  --h4: var(--h4-size) / var(--h4-line) var(--font-family-main);
-
-  --h5-size: 16px;
-  --h5-line: 27px;
-  --h5: var(--h5-size) / var(--h5-line) var(--font-family-main);
+  --h5-size: 20px;
+  --h5-line: 28px;
+  --h5: var(--h5-size) / var(--h5-line) var(--font-family-heading);
 
 
   // COLORS
@@ -49,6 +50,6 @@
   --dark-text-color: #b6c0cd;
 
 
-  --blue-color: #6794dc;  
+  --blue-color: #6794dc;
   --red-color: #ef4444;
 }
