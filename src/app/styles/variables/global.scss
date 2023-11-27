@@ -1,6 +1,6 @@
 :root {
   // TYPOGRAPHY
-  --font-family-main: 'Satoshi', Arial, system-ui, sans-serif;
+  --font-family-main: 'Poppins', Arial, system-ui, sans-serif;
 
   --font-size-s: 12px;
   --font-line-s: 20px;
@@ -37,12 +37,18 @@
 
   // COLORS
 
-  --accent-color: #a18a68;  
-  --white-color: #fff;
-  --black-color: #000;
-  --light-gray-color: #707070;
-  --gray-color: #d8d8d8;
-  --dark-gray-color: #efefef;
+  --light-white-color: #fff;
+  --light-gray-color: #f1f5f9;
+  --light-black-color: #0f172a;
+  --light-text-color: #475569;
 
-  --error-color: #d82700;
+  --dark-blue-color: #1e293b;
+  --dark-color: #0f172a;
+  --dark-white-color: #f1ffff;
+  --dark-highlight-color: #334155;
+  --dark-text-color: #b6c0cd;
+
+
+  --blue-color: #6794dc;  
+  --red-color: #ef4444;
 }
