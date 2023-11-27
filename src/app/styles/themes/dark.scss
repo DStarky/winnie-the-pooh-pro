@@ -1,6 +1,10 @@
 [data-theme='dark'] {
   --bg-color: var(--black-color);
   --text-color: var(--text-gray-color); 
-  --text-color-bold: var(--text-gray-bold-color);
+  --text-color-bold: var(--white-color);
   --heading-color: var(--white-color);
+
+  --button-bg: var(--white-color);
+  --button-border: var(--white-color);
+  --button-text: var(--black-color);
 }

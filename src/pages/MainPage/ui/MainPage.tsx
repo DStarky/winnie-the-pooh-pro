@@ -12,7 +12,6 @@ const MainPage = () => {
 			<h4>Something text</h4>
 			<h5>Something text</h5>
 			<div className='square'></div>
-			<button onClick={toggleTheme}>Переключить тему</button>
 		</>
 	);
 };

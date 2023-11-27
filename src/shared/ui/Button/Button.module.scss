@@ -1,0 +1,40 @@
+.root {
+
+  cursor: pointer;
+}
+
+.clear {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: var(--font-l);
+  color: var(--text-color);
+}
+
+.outline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 40px;
+  border: 1px solid var(--black-border);
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border-radius: 8px;
+}
+
+.filled {
+  color: var(--white-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 40px;
+  border: 1px solid var(--black-border);
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border-radius: 8px;
+}
+
+.wide {
+  flex-grow: 1;
+}
