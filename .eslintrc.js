@@ -34,19 +34,39 @@ module.exports = {
 		'react'
 	],
 	'rules': {
-		"react/prop-types": "off",
 		"@typescript-eslint/no-unused-vars": "warn",
 		"indent": ["error", "tab"],
-		"react/button-has-type": "warn",
 		"no-console": "warn",
 		"arrow-body-style": ["error", "as-needed"],
-		"react/self-closing-comp": ["error", { "component": true, "html": true }],
 		"@typescript-eslint/consistent-type-imports": [
 			"error",
 			{
 				"prefer": "type-imports",
 			}
 		],
+		// REACT Linting rules
 		"react-hooks/exhaustive-deps": "error",
+		"react/button-has-type": "warn",
+		"react/prop-types": "off",
+		"react/self-closing-comp": ["error", { "component": true, "html": true }],
+		"react/no-unstable-nested-components": "error",
+		"react/jsx-key": [
+			"error",
+			{
+				checkFragmentShorthand: true,
+				checkKeyMustBeforeSpread: true,
+				warnOnDuplicates: true,
+			},
+		],
+		"react/destructuring-assignment": [
+			"error",
+			"always",
+			{ destructureInSignature: "always" },
+		],
+		"react/no-danger": "error",
+		"react/no-danger-with-children": "error",
+		"react/jsx-pascal-case": "error",
+		"react/jsx-fragments": "error",
+		"react/jsx-no-leaked-render": ["error", { validStrategies: ["ternary"] }],
 	}
 };

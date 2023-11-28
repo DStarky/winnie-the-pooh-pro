@@ -13,17 +13,24 @@ interface AppNavLinkProps extends LinkProps {
 	theme?: AppNavLinkTheme;
 }
 
-const AppNavLink: React.FC<AppNavLinkProps> = props => {
-	const { className, children, to, theme = AppNavLinkTheme.PRIMARY, ...otherProps } = props;
-
-	return (
-		<NavLink
-			to={to}
-			className={({ isActive }) => `${classNames(styles.root, {}, [className, styles[theme]])} ${isActive ? styles['active'] : ''}`}
-			{...otherProps}>
-			{children}
-		</NavLink>
-	);
-};
+const AppNavLink: React.FC<AppNavLinkProps> = ({
+	className,
+	children,
+	to,
+	theme = AppNavLinkTheme.PRIMARY,
+	...otherProps
+}) => (
+	<NavLink
+		to={to}
+		className={({ isActive }) =>
+			`${classNames(styles.root, {}, [className, styles[theme]])} ${
+				isActive ? styles['active'] : ''
+			}`
+		}
+		{...otherProps}
+	>
+		{children}
+	</NavLink>
+);
 
 export default AppNavLink;
