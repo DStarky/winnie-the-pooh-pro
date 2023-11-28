@@ -21,7 +21,9 @@ interface IThemeContextGenerator {
 	supportedThemes: { [key: string]: string };
 }
 
-const ThemeContext = createContext<IThemeContextGenerator | undefined>(undefined);
+const ThemeContext = createContext<IThemeContextGenerator | undefined>(
+	undefined,
+);
 
 // Получение темы из localStorage
 
@@ -74,15 +76,17 @@ const Theme: React.FC<IThemeProps> = ({ children }) => {
 		document.body.setAttribute('data-theme', theme);
 	}, [theme]);
 
-  const defaultProps = useMemo( () => ({
-    theme: theme,
-    setTheme: setTheme,
-    supportedThemes: supportedThemes,
-  }), [theme])
+	const defaultProps = useMemo(
+		() => ({
+			theme: theme,
+			setTheme: setTheme,
+			supportedThemes: supportedThemes,
+		}),
+		[theme],
+	);
 
 	return (
-		<ThemeContext.Provider
-			value={defaultProps}>
+		<ThemeContext.Provider value={defaultProps}>
 			{children}
 		</ThemeContext.Provider>
 	);

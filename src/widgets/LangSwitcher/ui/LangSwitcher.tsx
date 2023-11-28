@@ -18,7 +18,8 @@ const LangSwitcher = ({ className }: LangSwitcherProps) => {
 		<Button
 			className={classNames(styles.root, {}, [className])}
 			onClick={toggleLang}
-			theme={ThemeButton.OUTLINE}>
+			theme={ThemeButton.OUTLINE}
+		>
 			{t('Сменить язык')}
 		</Button>
 	);
