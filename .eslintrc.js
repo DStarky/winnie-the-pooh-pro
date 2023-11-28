@@ -8,7 +8,8 @@ module.exports = {
 		'plugin:@typescript-eslint/recommended',
 		'plugin:react/recommended',
 		'plugin:react/jsx-runtime',
-		'prettier'
+		'prettier',
+		"plugin:react-hooks/recommended"
 	],
 	'overrides': [
 		{
@@ -35,6 +36,17 @@ module.exports = {
 	'rules': {
 		"react/prop-types": "off",
 		"@typescript-eslint/no-unused-vars": "warn",
-		"indent": ["error", "tab"]
+		"indent": ["error", "tab"],
+		"react/button-has-type": "warn",
+		"no-console": "warn",
+		"arrow-body-style": ["error", "as-needed"],
+		"react/self-closing-comp": ["error", { "component": true, "html": true }],
+		"@typescript-eslint/consistent-type-imports": [
+			"error",
+			{
+				"prefer": "type-imports",
+			}
+		],
+		"react-hooks/exhaustive-deps": "error",
 	}
 };

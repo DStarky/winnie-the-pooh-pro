@@ -8,14 +8,12 @@ interface NavbarProps {
 	className?: string;
 }
 
-const Navbar = ({ className }: NavbarProps) => {
-	return (
-		<header className={classNames(styles.root, {}, [className])}>
-			<AppNavLink to='/'>Home</AppNavLink>
-			<AppNavLink to='/about'>About</AppNavLink>
-			<ThemeSwitcher />
-			<LangSwitcher />
-		</header>
-	);
-};
+const Navbar = ({ className }: NavbarProps) => (
+	<header className={classNames(styles.root, {}, [className])}>
+		<AppNavLink to="/">Home</AppNavLink>
+		<AppNavLink to="/about">About</AppNavLink>
+		<ThemeSwitcher />
+		<LangSwitcher />
+	</header>
+);
 export default Navbar;

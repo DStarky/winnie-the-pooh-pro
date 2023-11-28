@@ -11,7 +11,7 @@ const MainPage = () => {
 			<h3>Something text</h3>
 			<h4>Something text</h4>
 			<h5>Something text</h5>
-			<div className="square"></div>
+			<div className="square" />
 		</>
 	);
 };

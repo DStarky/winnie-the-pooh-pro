@@ -1,9 +1,12 @@
-import webpack from 'webpack';
+import type webpack from 'webpack';
 import path from 'path';
 
 import { buildWebpackConfig } from './config/build/buildWebpackConfig';
-import { BuildEnv, BuildMode, BuildPaths } from './config/build/types/config';
-
+import type {
+	BuildEnv,
+	BuildMode,
+	BuildPaths,
+} from './config/build/types/config';
 
 export default (env: BuildEnv) => {
 	// Задаем мод

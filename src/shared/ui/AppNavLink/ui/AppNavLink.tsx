@@ -1,4 +1,4 @@
-import { LinkProps } from 'react-router-dom';
+import type { LinkProps } from 'react-router-dom';
 import styles from './AppNavLink.module.scss';
 import { classNames } from 'src/shared/lib/classNames/classNames';
 import { NavLink } from 'react-router-dom';
