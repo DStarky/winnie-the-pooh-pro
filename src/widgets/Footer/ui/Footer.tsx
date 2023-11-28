@@ -5,6 +5,8 @@ interface FooterProps {
 	className?: string;
 }
 
-const Footer = ({ className }: FooterProps) => <div className={classNames(styles.root, {}, [className])} />;
+const Footer = ({ className }: FooterProps) => (
+	<div className={classNames(styles.root, {}, [className])} />
+);
 
 export default Footer;

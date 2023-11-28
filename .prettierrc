@@ -10,5 +10,6 @@
   "arrowParens": "avoid",
   "bracketSpacing": true,
   "proseWrap": "preserve",
-  "quoteProps": "as-needed"
+  "quoteProps": "as-needed",
+  "printWidth": 160
 }

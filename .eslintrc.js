@@ -58,11 +58,6 @@ module.exports = {
 				warnOnDuplicates: true,
 			},
 		],
-		"react/destructuring-assignment": [
-			"error",
-			"always",
-			{ destructureInSignature: "always" },
-		],
 		"react/no-danger": "error",
 		"react/no-danger-with-children": "error",
 		"react/jsx-pascal-case": "error",
