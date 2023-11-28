@@ -1,16 +1,14 @@
 import { useTranslation } from 'react-i18next';
 
 const AboutPage = () => {
-	const { t, i18n } = useTranslation();
+	const { t, i18n } = useTranslation('about');
 
 	return (
 		<>
-			<h1>ABOUT PAGE</h1>
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit necessitatibus inventore repellat accusantium beatae, pariatur veritatis molestias
-				illum, saepe, delectus eaque ex! Molestiae fuga voluptates molestias laudantium autem? Quasi, sit?
-			</p>
+			<h1>{t('О нас')}</h1>
+			<p>{t('lorem')}</p>
 			<p>{t('Привет мир')}</p>
+			<p>{t("hello")}</p>
 		</>
 	);
 };
