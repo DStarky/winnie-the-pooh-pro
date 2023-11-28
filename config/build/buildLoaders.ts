@@ -43,15 +43,15 @@ export default function buildLoaders(options: BuildOptions): webpack.RuleSetRule
 	};
 
 	const babelLoader = {
-		 test: /\.(js|jsx|tsx)$/,
-		 exclude: /node_modules/,
-		 use: {
-			loader: "babel-loader",
+		test: /\.(js|jsx|tsx)$/,
+		exclude: /node_modules/,
+		use: {
+			loader: 'babel-loader',
 			options: {
-				presets: ['@babel/reset-env']
-			}
-		 }
-	}
+				presets: ['@babel/preset-env'],
+			},
+		},
+	};
 
 	return [babelLoader, typescriptLoader, cssLoaders, svgLoader, fileLoader];
 }
