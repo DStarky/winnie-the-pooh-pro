@@ -6,7 +6,7 @@ interface FooterProps {
 }
 
 const Footer = ({ className }: FooterProps) => (
-	<div className={classNames(styles.root, {}, [className])} />
+  <div className={classNames(styles.root, {}, [className])} />
 );
 
 export default Footer;

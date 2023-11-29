@@ -9,9 +9,9 @@ const container = document.getElementById('root');
 const root = createRoot(container);
 
 root.render(
-	<BrowserRouter>
-		<Theme>
-			<App />
-		</Theme>
-	</BrowserRouter>,
+  <BrowserRouter>
+    <Theme>
+      <App />
+    </Theme>
+  </BrowserRouter>,
 );
