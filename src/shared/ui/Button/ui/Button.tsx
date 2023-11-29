@@ -14,19 +14,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	wide?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = ({
-	className,
-	children,
-	theme = ThemeButton.CLEAR,
-	wide = false,
-	...otherProps
-}) => (
+const Button: React.FC<ButtonProps> = ({ className, children, theme = ThemeButton.CLEAR, wide = false, ...otherProps }) => (
 	<button
 		type="button"
-		className={classNames(styles.root, { [styles.wide]: wide }, [
-			className,
-			styles[theme],
-		])}
+		className={classNames(styles.root, { [styles.wide]: wide }, [className, styles[theme]])}
 		{...otherProps}
 	>
 		{children}

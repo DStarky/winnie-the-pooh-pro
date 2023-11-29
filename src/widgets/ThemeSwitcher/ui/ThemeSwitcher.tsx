@@ -1,5 +1,4 @@
 import { useThemeToggle } from 'src/app/providers/ThemeProvider';
-import styles from './ThemeSwitcher.module.scss';
 import { classNames } from 'src/shared/lib/classNames/classNames';
 import { Button, ThemeButton } from 'src/shared/ui/Button';
 
@@ -12,7 +11,7 @@ const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
 
 	return (
 		<Button
-			className={classNames(styles.root, {}, [className])}
+			className={classNames('', {}, [className])}
 			onClick={toggleTheme}
 			theme={ThemeButton.FILLED}
 			// wide

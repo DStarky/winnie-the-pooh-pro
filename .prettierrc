@@ -4,6 +4,7 @@
   "jsxSingleQuote": false,
   "singleQuote": true,
   "semi": true,
+  "trailingComma": "all",
   "jsxBracketSameLine": false,
   "bracketSameLine": false,
   "singleAttributePerLine": true,
