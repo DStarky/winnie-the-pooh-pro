@@ -1,4 +1,6 @@
 {
   "Main Page": "Main",
-  "About Page": "About"
+  "About Page": "About",
+  "ErrorBoundary": "Something went wrong",
+  "Reload": "Reload this page"
 }
