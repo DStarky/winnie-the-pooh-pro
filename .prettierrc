@@ -12,5 +12,5 @@
   "bracketSpacing": true,
   "proseWrap": "preserve",
   "quoteProps": "as-needed",
-  "printWidth": 160
+  "printWidth": 120
 }

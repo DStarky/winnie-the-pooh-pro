@@ -5,7 +5,7 @@ import { AppNavLink } from 'src/shared/ui/AppNavLink';
 import { LangSwitcher } from 'src/widgets/LangSwitcher';
 import { ThemeSwitcher } from 'src/widgets/ThemeSwitcher';
 
-interface NavbarProps {
+interface NavbarProps  {
   className?: string;
 }
 
@@ -13,7 +13,7 @@ const Navbar = ({ className }: NavbarProps) => {
   const { t } = useTranslation();
 
   return (
-    <header className={classNames(styles.root, {}, [className])}>
+    <header className={classNames(styles.root, {}, [className])} data-testid='navbar'>
       <AppNavLink to="/">{t('Main Page')}</AppNavLink>
       <AppNavLink to="/about">{t('About Page')}</AppNavLink>
       <ThemeSwitcher />

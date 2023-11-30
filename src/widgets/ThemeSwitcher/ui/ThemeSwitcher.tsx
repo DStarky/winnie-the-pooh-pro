@@ -16,6 +16,7 @@ const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
       className={classNames('', {}, [className])}
       onClick={toggleTheme}
       theme={ThemeButton.FILLED}
+      data-testid='theme-switcher'
       // wide
     >
       {t('Theme Switcher')}
