@@ -1,6 +1,5 @@
 import type { ErrorInfo, ReactNode } from 'react';
-import React, { Suspense } from 'react';
-import ErrorPage from 'src/widgets/ErrorPage/ui/ErrorPage';
+import React from 'react';
 
 interface ErrorBoundaryProps {
   children: ReactNode;
