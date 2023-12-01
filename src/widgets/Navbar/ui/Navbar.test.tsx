@@ -1,17 +1,10 @@
-import { render, screen } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
+import { screen } from '@testing-library/react';
 import Navbar from './Navbar';
-import Theme from 'src/app/providers/ThemeProvider';
+import { renderWithRouter } from 'src/shared/lib/tests/renderWithRouter/renderWithRouter';
 
 describe('Navbar component', () => {
   test('Navbar render', () => {
-    render(
-      <Theme>
-        <MemoryRouter>
-          <Navbar />
-        </MemoryRouter>
-      </Theme>,
-    );
+    renderWithRouter(<Navbar />);
     const navbarEl = screen.getByTestId('navbar');
     expect(navbarEl).toBeInTheDocument();
   });
