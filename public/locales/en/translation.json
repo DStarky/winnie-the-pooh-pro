@@ -1,6 +1,17 @@
 {
-  "Main Page": "Main",
-  "About Page": "About",
-  "ErrorBoundary": "Something went wrong",
-  "Reload": "Reload this page"
+  "errorBoundary": "Something went wrong",
+  "reload": "Reload page",
+  "pageNotFound": "Page not found",
+  "buttons": {
+    "themeSwitcher": "Change theme",
+    "langSwitcher": "Change language"
+  },
+  "mainPage": {
+    "title": "Main page"
+  },
+  "about": {
+    "helloWorld": "Hello world",
+    "aboutUs": "About us",
+    "lorem": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus voluptatibus dolore dolor hic iure exercitationem corporis laboriosam tenetur officia odio eos esse, quos quam, sequi facilis amet dolores perspiciatis! Illum."
+  }
 }

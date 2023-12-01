@@ -9,17 +9,17 @@ interface ThemeSwitcherProps {
 
 const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
   const toggleTheme = useThemeToggle();
-  const { t } = useTranslation('buttons');
+  const { t } = useTranslation('translation', { keyPrefix: 'buttons' });
 
   return (
     <Button
       className={classNames('', {}, [className])}
       onClick={toggleTheme}
       theme={ThemeButton.FILLED}
-      data-testid='theme-switcher'
+      data-testid="theme-switcher"
       // wide
     >
-      {t('Theme Switcher')}
+      {t('themeSwitcher')}
     </Button>
   );
 };

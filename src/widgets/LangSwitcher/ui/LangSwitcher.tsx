@@ -4,11 +4,11 @@ import { classNames } from 'src/shared/lib/classNames/classNames';
 import { Button, ThemeButton } from 'src/shared/ui/Button';
 
 interface LangSwitcherProps {
-	className?: string;
+  className?: string;
 }
 
 const LangSwitcher = ({ className }: LangSwitcherProps) => {
-  const { t, i18n } = useTranslation('buttons');
+  const { t, i18n } = useTranslation('translation', { keyPrefix: 'buttons' });
 
   const toggleLang = () => {
     i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
@@ -19,7 +19,7 @@ const LangSwitcher = ({ className }: LangSwitcherProps) => {
       onClick={toggleLang}
       theme={ThemeButton.OUTLINE}
     >
-      {t('Сменить язык')}
+      {t('langSwitcher')}
     </Button>
   );
 };

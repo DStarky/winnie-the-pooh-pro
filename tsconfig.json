@@ -21,6 +21,7 @@
     "esModuleInterop": true,
     // Позволяет использовать обычные import без * для библиотек, рассчитанных на nodeJs
     "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
   },
   "ts-node": {
     "compilerOptions": {

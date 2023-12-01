@@ -19,12 +19,12 @@ const ErrorPage = ({ className }: ErrorPageProps) => {
       data-testid="error-page"
       className={classNames(styles.root, {}, [className])}
     >
-      <h1>{t('ErrorBoundary')}</h1>
+      <h1>{t('errorBoundary')}</h1>
       <Button
         theme={ThemeButton.FILLED}
         onClick={reloadPage}
       >
-        {t('Reload')}
+        {t('reload')}
       </Button>
     </div>
   );

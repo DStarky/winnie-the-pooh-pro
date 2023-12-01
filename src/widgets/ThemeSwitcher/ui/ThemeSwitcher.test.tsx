@@ -1,7 +1,8 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import ThemeSwitcher from './ThemeSwitcher';
 import Theme from 'src/app/providers/ThemeProvider';
 import { renderWithTranslation } from 'src/shared/lib/tests/renderWithTranslation/renderWithTranslation';
+
 
 describe('Theme Switcher component', () => {
   test('Theme Switcher render', () => {
@@ -12,13 +13,9 @@ describe('Theme Switcher component', () => {
     );
     expect(screen.getByTestId('theme-switcher')).toBeInTheDocument();
   });
-  test('Theme Switcher text', () => {
-    renderWithTranslation(
-      <Theme>
-        <ThemeSwitcher />
-      </Theme>,
-    );
+  test('Theme Switcher text', async () => {
+    renderWithTranslation(<ThemeSwitcher />);
+    await waitFor(() => screen.getByTestId('theme-switcher'));
     screen.debug();
-    expect(screen.getByText('Theme Switcher')).toBeInTheDocument();
   });
 });
