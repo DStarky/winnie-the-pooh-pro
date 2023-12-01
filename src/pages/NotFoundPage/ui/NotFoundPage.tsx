@@ -9,7 +9,10 @@ interface NotFoundPageProps {
 const NotFoundPage = ({ className }: NotFoundPageProps) => {
   const { t } = useTranslation('notfound');
   return (
-    <div className={classNames(styles.root, {}, [className])}>
+    <div
+      data-testid="not-found-page"
+      className={classNames(styles.root, {}, [className])}
+    >
       <h1 className={classNames(styles.heading, {}, [])}>{t('Page Not Found')}</h1>
     </div>
   );

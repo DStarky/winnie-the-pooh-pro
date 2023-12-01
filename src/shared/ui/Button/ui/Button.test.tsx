@@ -5,19 +5,16 @@ describe('Button component', () => {
     // eslint-disable-next-line i18next/no-literal-string
     render(<Button>Test</Button>);
     expect(screen.getByText('Test')).toBeInTheDocument();
-    screen.debug();
   });
   test('Classes added', () => {
     // eslint-disable-next-line i18next/no-literal-string
     render(<Button className="testclass">Test</Button>);
     expect(screen.getByText('Test')).toHaveClass('testclass');
-    screen.debug();
   });
   test('Theme classes added', () => {
     // eslint-disable-next-line i18next/no-literal-string
     render(<Button theme={ThemeButton.FILLED}>Test</Button>);
     expect(screen.getByText('Test')).toHaveClass('filled');
     expect(screen.getByText('Test')).not.toHaveClass('clear');
-    screen.debug();
   });
 });

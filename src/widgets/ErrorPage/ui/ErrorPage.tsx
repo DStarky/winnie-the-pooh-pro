@@ -15,9 +15,17 @@ const ErrorPage = ({ className }: ErrorPageProps) => {
   };
 
   return (
-    <div className={classNames(styles.root, {}, [className])}>
+    <div
+      data-testid="error-page"
+      className={classNames(styles.root, {}, [className])}
+    >
       <h1>{t('ErrorBoundary')}</h1>
-      <Button theme={ThemeButton.FILLED} onClick={reloadPage}>{t('Reload')}</Button>
+      <Button
+        theme={ThemeButton.FILLED}
+        onClick={reloadPage}
+      >
+        {t('Reload')}
+      </Button>
     </div>
   );
 };

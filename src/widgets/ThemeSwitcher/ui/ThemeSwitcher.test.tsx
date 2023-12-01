@@ -11,7 +11,6 @@ describe('Theme Switcher component', () => {
       </Theme>,
     );
     expect(screen.getByTestId('theme-switcher')).toBeInTheDocument();
-    screen.debug();
   });
   test('Theme Switcher text', () => {
     renderWithTranslation(
@@ -19,7 +18,7 @@ describe('Theme Switcher component', () => {
         <ThemeSwitcher />
       </Theme>,
     );
-    expect(screen.getByText('Theme Switcher')).toBeInTheDocument();
     screen.debug();
+    expect(screen.getByText('Theme Switcher')).toBeInTheDocument();
   });
 });
