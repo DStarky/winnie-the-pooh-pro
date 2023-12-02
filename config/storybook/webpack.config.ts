@@ -29,8 +29,7 @@ export default ({ config }: { config: Configuration }) => {
   config.module.rules?.push(buildCssLoader(true));
   config.module.rules?.push(buildBabelLoader());
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  config.module.rules = config.module.rules?.map((rule: any) => {
+  config.module.rules = (config.module.rules as RuleSetRule[] | undefined)?.map((rule: RuleSetRule) => {
     if (/svg/.test(rule.test as string)) {
       return { ...rule, exclude: /\.svg$/ };
     }
