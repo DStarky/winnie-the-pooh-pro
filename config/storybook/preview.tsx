@@ -3,6 +3,7 @@ import React from 'react';
 import type { Preview } from '@storybook/react';
 import Theme from '../../src/app/providers/ThemeProvider';
 import '../../src/app/styles/index.scss';
+import { BrowserRouter } from 'react-router-dom';
 
 const myThemes = {
   light: 'light',
@@ -38,13 +39,15 @@ const preview: Preview = {
     (Story, context) => {
       const theme = myThemes[context.globals.theme];
       return (
-        <Theme>
-          <body data-theme={theme}>
-            <div style={{ padding: '3rem' }}>
-              <Story />
-            </div>
-          </body>
-        </Theme>
+        <BrowserRouter>
+          <Theme>
+            <body data-theme={theme}>
+              <div style={{ padding: '3rem' }}>
+                <Story />
+              </div>
+            </body>
+          </Theme>
+        </BrowserRouter>
       );
     },
   ],

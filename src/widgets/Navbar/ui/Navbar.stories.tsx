@@ -1,13 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import ThemeSwitcher from './ThemeSwitcher';
-import Theme from 'src/app/providers/ThemeProvider';
-// import 'src/app/styles/index.scss';
+import Navbar from './Navbar';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'widgets/ThemeSwitcher',
-  component: ThemeSwitcher,
+  title: 'widgets/Navbar',
+  component: Navbar,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: 'centered',
@@ -18,7 +16,7 @@ const meta = {
   argTypes: {
     // backgroundColor: { control: 'color' },
   },
-} satisfies Meta<typeof ThemeSwitcher>;
+} satisfies Meta<typeof Navbar>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

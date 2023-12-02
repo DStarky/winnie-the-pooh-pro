@@ -4,17 +4,19 @@ import { classNames } from 'src/shared/lib/classNames/classNames';
 import { NavLink } from 'react-router-dom';
 
 export enum AppNavLinkTheme {
-	PRIMARY = 'primary',
-	SECONDARY = 'secondary',
+  PRIMARY = 'primary',
+  SECONDARY = 'secondary',
 }
 
 interface AppNavLinkProps extends LinkProps {
-	className?: string;
-	theme?: AppNavLinkTheme;
+  className?: string;
+  theme?: AppNavLinkTheme;
+  forcedActive?: boolean;
 }
 
 const AppNavLink: React.FC<AppNavLinkProps> = ({
   className,
+  forcedActive,
   children,
   to,
   theme = AppNavLinkTheme.PRIMARY,
@@ -23,7 +25,7 @@ const AppNavLink: React.FC<AppNavLinkProps> = ({
   <NavLink
     to={to}
     className={({ isActive }) =>
-      `${classNames(styles.root, {}, [className, styles[theme]])} ${
+      `${classNames(styles.root, { [styles['active']]: forcedActive }, [className, styles[theme]])} ${
         isActive ? styles['active'] : ''
       }`
     }
