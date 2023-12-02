@@ -38,11 +38,13 @@ const preview: Preview = {
     (Story, context) => {
       const theme = myThemes[context.globals.theme];
       return (
-        <body data-theme={theme}>
-          <div style={{ padding: '3rem' }}>
-            <Story />
-          </div>
-        </body>
+        <Theme>
+          <body data-theme={theme}>
+            <div style={{ padding: '3rem' }}>
+              <Story />
+            </div>
+          </body>
+        </Theme>
       );
     },
   ],
