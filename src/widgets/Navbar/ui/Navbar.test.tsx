@@ -1,10 +1,10 @@
 import { screen } from '@testing-library/react';
 import Navbar from './Navbar';
-import { renderWithRouter } from 'src/shared/lib/tests/renderWithRouter/renderWithRouter';
+import { customRender } from 'src/shared/lib/tests/customRender';
 
 describe('Navbar component', () => {
   test('Navbar render', () => {
-    renderWithRouter(<Navbar />);
+    customRender(<Navbar />);
     const navbarEl = screen.getByTestId('navbar');
     expect(navbarEl).toBeInTheDocument();
   });

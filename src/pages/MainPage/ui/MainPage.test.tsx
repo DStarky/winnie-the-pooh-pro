@@ -7,6 +7,5 @@ describe('Main page test', () => {
     customRender(<MainPage />);
     await waitFor(() => screen.getByTestId('main-page'));
     expect(screen.getByTestId('main-page')).toBeInTheDocument();
-    screen.debug();
   });
 });

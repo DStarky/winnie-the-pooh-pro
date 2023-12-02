@@ -16,6 +16,5 @@ describe('Theme Switcher component', () => {
   test('Theme Switcher text', async () => {
     renderWithTranslation(<ThemeSwitcher />);
     await waitFor(() => screen.getByTestId('theme-switcher'));
-    screen.debug();
   });
 });
