@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import ThemeSwitcher from './ThemeSwitcher';
-import Theme from 'src/app/providers/ThemeProvider';
 // import 'src/app/styles/index.scss';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
