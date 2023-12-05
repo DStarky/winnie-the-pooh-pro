@@ -69,5 +69,10 @@ module.exports = {
     "react/jsx-no-leaked-render": ["error", { validStrategies: ["ternary"] }],
     //Settings for i18next
     "i18next/no-literal-string": ["error", { markupOnly: true }]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 };

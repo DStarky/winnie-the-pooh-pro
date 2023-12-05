@@ -23,3 +23,6 @@ build-ssr
 *.njsproj
 *.sln
 *.sw?
+
+.loki/report.html
+.loki/report.json
