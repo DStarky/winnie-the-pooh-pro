@@ -1,9 +1,8 @@
+
 .root {
   position: fixed;
   inset: 0;
-  opacity: 0;
-  pointer-events: none;
-  z-index: -1;
+  z-index: var(--z-index-modal);
 }
 
 .overlay {
@@ -13,16 +12,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 .content {
   padding: 48px;
   background-color: var(--white-color);
   border-radius: 25px;
-}
+  margin: 15px;
+  max-width: 924px;
 
-.opened {
-  pointer-events: auto;
-  opacity: 1;
-  z-index: var(--z-index-modal);
 }

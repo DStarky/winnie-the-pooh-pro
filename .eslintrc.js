@@ -35,7 +35,8 @@ module.exports = {
   'plugins': [
     '@typescript-eslint',
     'react',
-    "i18next"
+    "i18next",
+    "react-hooks"
   ],
   'rules': {
     "@typescript-eslint/no-unused-vars": "warn",
@@ -49,7 +50,7 @@ module.exports = {
       }
     ],
     // REACT Linting rules
-    "react-hooks/exhaustive-deps": "error",
+  
     "react/button-has-type": "warn",
     "react/prop-types": "off",
     "react/self-closing-comp": ["error", { "component": true, "html": true }],
@@ -66,9 +67,12 @@ module.exports = {
     "react/no-danger-with-children": "error",
     "react/jsx-pascal-case": "error",
     "react/jsx-fragments": "error",
+    //React hooks
+    "react-hooks/rules-of-hooks": "error", // Check rules of Hooks
+    "react-hooks/exhaustive-deps": "error",
     "react/jsx-no-leaked-render": ["error", { validStrategies: ["ternary"] }],
     //Settings for i18next
-    "i18next/no-literal-string": ["error", { markupOnly: true }]
+    "i18next/no-literal-string": ["error", { markupOnly: true }],
   },
   "settings": {
     "react": {
