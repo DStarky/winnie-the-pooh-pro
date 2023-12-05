@@ -8,9 +8,10 @@ export interface ModalProps {
   children?: ReactNode;
   isOpen?: boolean;
   onClose?: () => void;
+  withoutInitial?: boolean;
 }
 
-const Modal = ({ className, children, onClose, isOpen }: ModalProps) => {
+const Modal = ({ className, children, onClose, isOpen, withoutInitial }: ModalProps) => {
   const mods: Record<string, boolean> = {
     [styles.opened]: isOpen,
   };
@@ -48,7 +49,8 @@ const Modal = ({ className, children, onClose, isOpen }: ModalProps) => {
     <AnimatePresence>
       {isOpen ? (
         <motion.div
-          initial={{ opacity: 0 }}
+          data-testid="modal"
+          initial={withoutInitial ? false : { opacity: 0 }}
           animate={{
             opacity: 1,
           }}
@@ -60,7 +62,7 @@ const Modal = ({ className, children, onClose, isOpen }: ModalProps) => {
             onClick={closeHandler}
           >
             <motion.div
-              initial={{ scale: 0.5 }}
+              initial={withoutInitial ? false : { scale: 0.5 }}
               animate={{
                 scale: 1,
               }}

@@ -16,11 +16,12 @@ export const Primary: Story = {
   args: {
     isOpen: true,
     children: 'Это модальное окно. Вот как оно выглядит',
+    withoutInitial: true,
   },
 
   decorators: [
     Story => (
-      <div style={{margin: '100px'}}>
+      <div style={{ margin: '100px' }}>
         <Story />
       </div>
     ),
