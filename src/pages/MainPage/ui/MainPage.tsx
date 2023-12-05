@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button, ThemeButton } from 'src/shared/ui/Button';
 import Modal from 'src/shared/ui/Modal/ui/Modal';
+import ModalWithPortal from 'src/shared/ui/ModalWithPortal/ui/ModalWithPortal';
 
 const MainPage = () => {
   const { t } = useTranslation('translation', { keyPrefix: 'mainPage' });
@@ -16,10 +17,13 @@ const MainPage = () => {
       >
         Modal toggle
       </Button>
-      <Modal
+      <ModalWithPortal
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
-      />
+      >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam quas earum ipsa commodi laboriosam labore optio
+        pariatur, facere in vero nobis eum at mollitia a dolorum rem sunt tenetur libero.
+      </ModalWithPortal>
     </div>
   );
 };

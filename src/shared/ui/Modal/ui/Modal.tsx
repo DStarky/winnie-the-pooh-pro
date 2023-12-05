@@ -2,9 +2,8 @@ import { useEffect, type ReactNode, useCallback } from 'react';
 import styles from './Modal.module.scss';
 import { classNames } from 'src/shared/lib/classNames/classNames';
 import { motion, AnimatePresence } from 'framer-motion';
-import Portal from 'src/shared/ui/Portal/Portal';
 
-interface ModalProps {
+export interface ModalProps {
   className?: string;
   children?: ReactNode;
   isOpen?: boolean;
@@ -46,40 +45,38 @@ const Modal = ({ className, children, onClose, isOpen }: ModalProps) => {
   }, [isOpen, onClose, onKeyDown]);
 
   return (
-    <Portal>
-      <AnimatePresence>
-        {isOpen ? (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{
-              opacity: 1,
-            }}
-            exit={{ opacity: 0 }}
-            className={classNames(styles.root, mods, [className])}
+    <AnimatePresence>
+      {isOpen ? (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{
+            opacity: 1,
+          }}
+          exit={{ opacity: 0 }}
+          className={classNames(styles.root, mods, [className])}
+        >
+          <div
+            className={styles.overlay}
+            onClick={closeHandler}
           >
-            <div
-              className={styles.overlay}
-              onClick={closeHandler}
+            <motion.div
+              initial={{ scale: 0.5 }}
+              animate={{
+                scale: 1,
+              }}
+              exit={{ scale: 0.5 }}
+              transition={{
+                duration: 0.3,
+              }}
+              className={styles.content}
+              onClick={onContentClick}
             >
-              <motion.div
-                initial={{ scale: 0.5 }}
-                animate={{
-                  scale: 1,
-                }}
-                exit={{ scale: 0.5 }}
-                transition={{
-                  duration: 0.3,
-                }}
-                className={styles.content}
-                onClick={onContentClick}
-              >
-                {children}
-              </motion.div>
-            </div>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
-    </Portal>
+              {children}
+            </motion.div>
+          </div>
+        </motion.div>
+      ) : null}
+    </AnimatePresence>
   );
 };
 
