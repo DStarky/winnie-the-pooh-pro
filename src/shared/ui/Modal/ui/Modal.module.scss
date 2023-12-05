@@ -1,7 +1,9 @@
 .root {
   position: fixed;
   inset: 0;
-  z-index: var(--z-index-modal);
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
 }
 
 .overlay {
@@ -17,4 +19,10 @@
   padding: 48px;
   background-color: var(--white-color);
   border-radius: 25px;
+}
+
+.opened {
+  pointer-events: auto;
+  opacity: 1;
+  z-index: var(--z-index-modal);
 }
