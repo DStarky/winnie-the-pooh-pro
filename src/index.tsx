@@ -6,16 +6,19 @@ import App from 'src/app/App';
 import Theme from 'src/app/providers/ThemeProvider';
 import { ErrorBoundary } from './app/providers/ErrorBoundary';
 import { ErrorPage } from './widgets/ErrorPage';
+import { StoreProvider } from './app/providers/StoreProvider';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 
 root.render(
-  <BrowserRouter>
-    <ErrorBoundary fallback={<ErrorPage />}>
-      <Theme>
-        <App />
-      </Theme>
-    </ErrorBoundary>
-  </BrowserRouter>,
+  <StoreProvider>
+    <BrowserRouter>
+      <ErrorBoundary fallback={<ErrorPage />}>
+        <Theme>
+          <App />
+        </Theme>
+      </ErrorBoundary>
+    </BrowserRouter>
+  </StoreProvider>,
 );
