@@ -5,13 +5,17 @@ import { customRender } from 'src/shared/lib/tests/customRender';
 
 describe('Not Found Page component', () => {
   test('Not Found Page render', async () => {
-    customRender(<App />, '/not-exist-page');
+    customRender(<App />, {
+      route: '/not-exist-page'
+    });
     const errorPage = await screen.findByTestId('not-found-page');
     expect(errorPage).toBeInTheDocument();
   });
 
   test('About link click', async () => {
-    customRender(<App />, '/not-exist-page');
+    customRender(<App />, {
+      route: '/not-exist-page'
+    });
 
     await waitFor(() => screen.getByTestId('not-found-page'));
     const aboutLink = screen.getByTestId('about-link');
