@@ -1,4 +1,4 @@
-import { useEffect, type ReactNode, useCallback } from 'react';
+import { useEffect, type ReactNode, useCallback, memo } from 'react';
 import styles from './Modal.module.scss';
 import { classNames } from 'src/shared/lib/classNames/classNames';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -11,7 +11,7 @@ export interface ModalProps {
   withoutInitial?: boolean;
 }
 
-const Modal = ({ className, children, onClose, isOpen, withoutInitial }: ModalProps) => {
+const Modal = memo(function Modal({ className, children, onClose, isOpen, withoutInitial }: ModalProps) {
   const mods: Record<string, boolean> = {
     [styles.opened]: isOpen,
   };
@@ -80,6 +80,6 @@ const Modal = ({ className, children, onClose, isOpen, withoutInitial }: ModalPr
       ) : null}
     </AnimatePresence>
   );
-};
+});
 
 export default Modal;
