@@ -1,3 +1,6 @@
+/* eslint-disable no-undef */
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable no-console */
 const fs = require('fs');
 const jsonServer = require('json-server');
 const path = require('path');
