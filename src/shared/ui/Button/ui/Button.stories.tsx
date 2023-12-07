@@ -48,4 +48,12 @@ export const ModalFilled: Story = {
     children: 'Text',
     theme: ThemeButton.MODAL_FILLED,
   },
+
+  decorators: [
+    Story => (
+      <div style={{ padding: '3em', backgroundColor: 'var(--white-color)' }}>
+        <Story />
+      </div>
+    ),
+  ],
 };

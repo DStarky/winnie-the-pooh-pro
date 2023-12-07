@@ -1,4 +1,3 @@
-import styles from './LoginModal.module.scss';
 import { classNames } from 'src/shared/lib/classNames/classNames';
 import { ModalWithPortal } from 'src/shared/ui/ModalWithPortal';
 import { LoginForm } from '../../LoginForm';
@@ -15,7 +14,7 @@ const LoginModal = memo(function LoginModal({ className, isOpen, onClose }: Logi
     <ModalWithPortal
       isOpen={isOpen}
       onClose={onClose}
-      className={classNames(styles.root, {}, [className])}
+      className={classNames('', {}, [className])}
     >
       <LoginForm />
     </ModalWithPortal>
