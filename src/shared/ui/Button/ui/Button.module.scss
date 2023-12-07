@@ -33,6 +33,17 @@
   border-radius: 8px;
 }
 
+.modal-filled {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 40px;
+  border: none;
+  background-color: var(--black-color);
+  color: var(--white-color);
+  border-radius: 8px;
+}
+
 .wide {
   flex-grow: 1;
 }

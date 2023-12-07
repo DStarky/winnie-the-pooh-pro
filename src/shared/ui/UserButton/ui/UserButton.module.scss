@@ -1,0 +1,15 @@
+.root {
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  stroke: var(--user-button-stroke);
+}

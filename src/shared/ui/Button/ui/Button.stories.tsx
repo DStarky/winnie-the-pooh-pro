@@ -43,3 +43,9 @@ export const Outline: Story = {
     theme: ThemeButton.OUTLINE,
   },
 };
+export const ModalFilled: Story = {
+  args: {
+    children: 'Text',
+    theme: ThemeButton.MODAL_FILLED,
+  },
+};
