@@ -1,0 +1,17 @@
+{
+  "name": {
+    "myName": "Dmitrii"
+  },
+  "skills": [
+    "english",
+    "frontend",
+    "graphic design"
+  ],
+  "hobby": {
+    "anime": [
+      "Attack on titan",
+      "Fullmetal Alchemist"
+    ],
+    "games": "Hollow knight"
+  }
+}
