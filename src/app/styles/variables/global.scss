@@ -58,7 +58,12 @@
   --text-gray-bold-color: #343839;
   --green-color: #38cb89;
   --blue-color: #377DFF;
+  --gray-border: #cbcbcb;
 
   // z - indexes
   --z-index-modal: 10;
+
+  // Input
+  --input-border: var(--gray-border);
+  --input-border-focus: var(--text-gray-color);
 }

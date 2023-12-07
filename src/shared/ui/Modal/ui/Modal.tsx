@@ -1,7 +1,7 @@
-import { useEffect, type ReactNode, useCallback, memo } from 'react';
+import { useEffect, type ReactNode, useCallback, memo, useState } from 'react';
 import styles from './Modal.module.scss';
 import { classNames } from 'src/shared/lib/classNames/classNames';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 export interface ModalProps {
   className?: string;
@@ -9,12 +9,13 @@ export interface ModalProps {
   isOpen?: boolean;
   onClose?: () => void;
   withoutInitial?: boolean;
+  lazy?: boolean;
 }
 
-const Modal = memo(function Modal({ className, children, onClose, isOpen, withoutInitial }: ModalProps) {
-  const mods: Record<string, boolean> = {
-    [styles.opened]: isOpen,
-  };
+const Modal = memo(function Modal(props: ModalProps) {
+  const { className, children, onClose, isOpen, withoutInitial, lazy } = props;
+
+  const [isMounted, setIsMounted] = useState(false);
 
   const closeHandler = useCallback(() => {
     if (onClose) {
@@ -36,6 +37,10 @@ const Modal = memo(function Modal({ className, children, onClose, isOpen, withou
   );
 
   useEffect(() => {
+    if (isOpen) setIsMounted(true);
+  }, [isOpen]);
+
+  useEffect(() => {
     if (isOpen) {
       window.addEventListener('keydown', onKeyDown);
     }
@@ -45,40 +50,36 @@ const Modal = memo(function Modal({ className, children, onClose, isOpen, withou
     };
   }, [isOpen, onClose, onKeyDown]);
 
+  if (lazy && !isMounted) {
+    return null;
+  }
+
   return (
-    <AnimatePresence>
-      {isOpen ? (
+    <motion.div
+      data-testid="modal"
+      initial={withoutInitial ? false : { opacity: 0 }}
+      animate={{
+        opacity: isOpen ? 1 : 0,
+        pointerEvents: isOpen ? 'auto' : 'none',
+      }}
+      className={classNames(styles.root, {}, [className])}
+    >
+      <div
+        className={styles.overlay}
+        onClick={closeHandler}
+      >
         <motion.div
-          data-testid="modal"
-          initial={withoutInitial ? false : { opacity: 0 }}
+          initial={withoutInitial ? false : { scale: 0.5 }}
           animate={{
-            opacity: 1,
+            scale: isOpen ? 1 : 0.5,
           }}
-          exit={{ opacity: 0 }}
-          className={classNames(styles.root, mods, [className])}
+          className={styles.content}
+          onClick={onContentClick}
         >
-          <div
-            className={styles.overlay}
-            onClick={closeHandler}
-          >
-            <motion.div
-              initial={withoutInitial ? false : { scale: 0.5 }}
-              animate={{
-                scale: 1,
-              }}
-              exit={{ scale: 0.5 }}
-              transition={{
-                duration: 0.3,
-              }}
-              className={styles.content}
-              onClick={onContentClick}
-            >
-              {children}
-            </motion.div>
-          </div>
+          {children}
         </motion.div>
-      ) : null}
-    </AnimatePresence>
+      </div>
+    </motion.div>
   );
 });
 

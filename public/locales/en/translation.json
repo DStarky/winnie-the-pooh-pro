@@ -1,17 +1,22 @@
 {
-  "errorBoundary": "Something went wrong",
-  "reload": "Reload page",
-  "pageNotFound": "Page not found",
+  "Something went wrong": "Something went wrong",
+  "Reload page": "Reload page",
+  "Page not found": "Page not found",
   "buttons": {
-    "themeSwitcher": "Change theme",
-    "langSwitcher": "Change language"
+    "Change theme": "Change theme",
+    "Change language": "Change language"
   },
   "mainPage": {
-    "title": "Main page"
+    "Main page": "Main page"
   },
   "about": {
     "helloWorld": "Hello world",
     "aboutUs": "About us",
     "lorem": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus voluptatibus dolore dolor hic iure exercitationem corporis laboriosam tenetur officia odio eos esse, quos quam, sequi facilis amet dolores perspiciatis! Illum."
+  },
+  "auth": {
+    "Log in": "Log in",
+    "Username": "Username",
+    "Password": "Password"
   }
 }

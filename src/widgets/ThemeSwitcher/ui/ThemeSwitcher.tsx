@@ -19,7 +19,7 @@ const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
       data-testid="theme-switcher"
       // wide
     >
-      {t('themeSwitcher')}
+      {t('Change theme')}
     </Button>
   );
 };

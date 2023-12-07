@@ -6,7 +6,7 @@ const MainPage = () => {
 
   return (
     <div data-testid="main-page">
-      <h1>{t('title')}</h1>
+      <h1>{t('Main page')}</h1>
       <Counter />
     </div>
   );

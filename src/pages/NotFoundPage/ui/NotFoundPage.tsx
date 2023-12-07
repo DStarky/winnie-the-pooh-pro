@@ -13,7 +13,7 @@ const NotFoundPage = ({ className }: NotFoundPageProps) => {
       data-testid="not-found-page"
       className={classNames(styles.root, {}, [className])}
     >
-      <h1 className={classNames(styles.heading, {}, [])}>{t('pageNotFound')}</h1>
+      <h1 className={classNames(styles.heading, {}, [])}>{t('Page not found')}</h1>
     </div>
   );
 };

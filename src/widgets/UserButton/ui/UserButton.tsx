@@ -22,6 +22,7 @@ const UserButton = ({ className }: UserButtonProps) => {
   return (
     <>
       <button
+        data-testid="user-button"
         type="button"
         className={classNames(styles.root, {}, [className])}
         onClick={openLoginModal}
@@ -31,6 +32,7 @@ const UserButton = ({ className }: UserButtonProps) => {
       <LoginModal
         isOpen={isLoginModalOpen}
         onClose={closeLoginModal}
+        lazy
       />
     </>
   );

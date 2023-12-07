@@ -1,0 +1,15 @@
+.root {
+  border: 1px solid var(--input-border);
+  padding: 8px 16px;
+  color: var(--text-gray-color);
+  border-radius: 6px;
+
+  &:focus {
+    outline: none;
+    border: 1px solid var(--input-border-focus);
+
+    &::placeholder {
+      color: transparent;
+    }
+  }
+}
