@@ -11,4 +11,8 @@ describe('getLoginError test', () => {
     };
     expect(getLoginError(state as StateSchema)).toEqual('ERROR');
   });
+  test('without error', () => {
+    const state: DeepPartial<StateSchema> = {};
+    expect(getLoginError(state as StateSchema)).toEqual('');
+  });
 });
