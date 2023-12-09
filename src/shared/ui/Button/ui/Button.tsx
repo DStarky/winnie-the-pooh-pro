@@ -13,22 +13,32 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   theme?: ThemeButton;
   wide?: boolean;
+  disabled?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({
   className,
   children,
+  disabled = false,
   theme = ThemeButton.CLEAR,
   wide = false,
   ...otherProps
-}) => (
-  <button
-    type="button"
-    className={classNames(styles.root, { [styles.wide]: wide }, [className, styles[theme]])}
-    {...otherProps}
-  >
-    {children}
-  </button>
-);
+}) => {
+  const mods: Record<string, boolean> = {
+    [styles.wide]: wide,
+    [styles.disabled]: disabled,
+  };
+
+  return (
+    <button
+      type="button"
+      className={classNames(styles.root, mods, [className, styles[theme]])}
+      disabled={disabled}
+      {...otherProps}
+    >
+      {children}
+    </button>
+  );
+};
 
 export default Button;

@@ -11,6 +11,8 @@ import { getLoginUsername } from 'src/features/AuthByUsername/model/selectors/ge
 import { getLoginPassword } from 'src/features/AuthByUsername/model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginError } from 'src/features/AuthByUsername/model/selectors/getLoginError/getLoginError';
 import { getLoginLoading } from 'src/features/AuthByUsername/model/selectors/getLoginLoading/getLoginLoading';
+import { loginByUsername } from 'src/features/AuthByUsername/model/services/loginByUsername/loginByUsername';
+import type { DispatchType } from 'src/app/providers/StoreProvider/ui/StoreProvider';
 
 interface LoginFormProps {
   className?: string;
@@ -18,11 +20,11 @@ interface LoginFormProps {
 
 const LoginForm = memo(function LoginForm({ className }: LoginFormProps) {
   const { t } = useTranslation('translation', { keyPrefix: 'auth' });
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<DispatchType>();
   const loginUsername = useSelector(getLoginUsername);
   const loginPassword = useSelector(getLoginPassword);
-  // const loginError = useSelector(getLoginError);
-  // const loginLoading = useSelector(getLoginLoading);
+  const loginError = useSelector(getLoginError);
+  const loginLoading = useSelector(getLoginLoading);
 
   const onChangeUsername = useCallback(
     (value: string) => {
@@ -41,8 +43,10 @@ const LoginForm = memo(function LoginForm({ className }: LoginFormProps) {
   const onSubmit = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      dispatch(loginByUsername({ username: loginUsername, password: loginPassword }));
     },
-    [],
+    [dispatch, loginUsername, loginPassword],
   );
 
   return (
@@ -51,6 +55,7 @@ const LoginForm = memo(function LoginForm({ className }: LoginFormProps) {
       data-testid="login-form"
       onSubmit={onSubmit}
     >
+      <div>{loginError ? <p style={{ color: 'red' }}>{loginError}</p> : null}</div>
       <Input
         placeholder={t('Username')}
         onChange={onChangeUsername}
@@ -62,7 +67,13 @@ const LoginForm = memo(function LoginForm({ className }: LoginFormProps) {
         onChange={onChangePassword}
         value={loginPassword}
       />
-      <Button theme={ThemeButton.MODAL_FILLED} type='submit'>{t('Log in')}</Button>
+      <Button
+        theme={ThemeButton.MODAL_FILLED}
+        type="submit"
+        disabled={loginLoading}
+      >
+        {t('Log in')}
+      </Button>
     </form>
   );
 });

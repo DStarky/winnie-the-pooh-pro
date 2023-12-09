@@ -16,5 +16,6 @@ export function createReduxStore(initialState?: StateSchema) {
     reducer: rootReducers,
     devTools: __IS_DEV__,
     preloadedState: initialState,
+    
   });
 }

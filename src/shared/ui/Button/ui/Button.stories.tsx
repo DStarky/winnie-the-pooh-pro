@@ -43,6 +43,13 @@ export const Outline: Story = {
     theme: ThemeButton.OUTLINE,
   },
 };
+export const Disabled: Story = {
+  args: {
+    children: 'Text',
+    theme: ThemeButton.FILLED,
+    disabled: true,
+  },
+};
 export const ModalFilled: Story = {
   args: {
     children: 'Text',
