@@ -1,11 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import type { LoginSchema } from '../../types/loginSchema';
-import type { User } from 'src/entities/User';
+import { userActions, type User } from 'src/entities/User';
+import { USER_LOCALSTORAGE_KEY } from 'src/shared/const/localStorage';
 
 type LoginByUsernameProps = Pick<LoginSchema, 'username' | 'password'>;
 
-// First, create the thunk
 export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, { rejectValue: string }>(
   'login/loginByUsername',
   async (authData, thunkAPI) => {
@@ -15,9 +15,12 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, { re
         throw new Error();
       }
 
+      localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
+      thunkAPI.dispatch(userActions.setAuthData(response.data));
+
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data.message);
+      return thunkAPI.rejectWithValue(error.response.data.message || 'error');
     }
   },
 );

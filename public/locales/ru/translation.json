@@ -19,5 +19,9 @@
   "navbar": {
     "Main": "Главная",
     "About us": "О нас"
+  },
+  "myAccountPage": {
+    "My account": "Мой аккаунт",
+    "You must log in": "Необходимо авторизоваться"
   }
 }

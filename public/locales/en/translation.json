@@ -19,5 +19,9 @@
   "navbar": {
     "Main": "Main",
     "About us": "Abous us"
+  },
+  "myAccountPage": {
+    "My account": "My account",
+    "You must log in": "You must log in"
   }
 }

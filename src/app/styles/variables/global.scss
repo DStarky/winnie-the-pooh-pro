@@ -34,8 +34,8 @@
   --h2: var(--h2-size) / var(--h2-line) var(--font-family-heading);
 
   // H3
-  --h3-size: 34px;
-  --h3-line: 38px;
+  --h3-size: 54px;
+  --h3-line: 58px;
   --h3: var(--h3-size) / var(--h3-line) var(--font-family-heading);
 
   // H4
@@ -49,16 +49,18 @@
   --h5: var(--h5-size) / var(--h5-line) var(--font-family-heading);
 
 
-  // COLORS
+  // COLORS 
 
   --white-color: #f9f9f9;
   --black-color: #141718;
+  --absolute-black-color: #000;
   --gray-color: #f3f5f7;
   --text-gray-color: #6c7275;
   --text-gray-bold-color: #343839;
   --green-color: #38cb89;
   --blue-color: #377DFF;
   --gray-border: #cbcbcb;
+  --red-color: #f33;
 
   // z - indexes
   --z-index-modal: 10;

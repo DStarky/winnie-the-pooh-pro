@@ -1,18 +1,16 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { loginActions } from 'src/features/AuthByUsername/model/slice/loginSlice';
 import styles from './LoginForm.module.scss';
 
-import { classNames } from 'src/shared/lib/classNames/classNames';
-import { Button, ThemeButton } from 'src/shared/ui/Button';
-import { Input } from 'src/shared/ui/Input';
-import { getLoginUsername } from 'src/features/AuthByUsername/model/selectors/getLoginUsername/getLoginUsername';
-import { getLoginPassword } from 'src/features/AuthByUsername/model/selectors/getLoginPassword/getLoginPassword';
-import { getLoginError } from 'src/features/AuthByUsername/model/selectors/getLoginError/getLoginError';
-import { getLoginLoading } from 'src/features/AuthByUsername/model/selectors/getLoginLoading/getLoginLoading';
-import { loginByUsername } from 'src/features/AuthByUsername/model/services/loginByUsername/loginByUsername';
 import type { DispatchType } from 'src/app/providers/StoreProvider/ui/StoreProvider';
+import { loginActions } from 'src/features/AuthByUsername/model/slice/loginSlice';
+import { getLoginUsername, getLoginPassword, getLoginError, getLoginLoading, loginByUsername } from '../../../index';
+
+import { Button, ThemeButton } from 'src/shared/ui/Button';
+import { classNames } from 'src/shared/lib/classNames/classNames';
+import { Input } from 'src/shared/ui/Input';
+import { Text, ThemeText } from 'src/shared/ui/Text';
 
 interface LoginFormProps {
   className?: string;
@@ -55,7 +53,16 @@ const LoginForm = memo(function LoginForm({ className }: LoginFormProps) {
       data-testid="login-form"
       onSubmit={onSubmit}
     >
-      <div>{loginError ? <p style={{ color: 'red' }}>{loginError}</p> : null}</div>
+      <div>
+        {loginError ? (
+          <Text
+            size="m"
+            theme={ThemeText.ERROR}
+          >
+            {loginError}
+          </Text>
+        ) : null}
+      </div>
       <Input
         placeholder={t('Username')}
         onChange={onChangeUsername}

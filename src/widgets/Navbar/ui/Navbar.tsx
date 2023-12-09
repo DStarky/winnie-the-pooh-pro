@@ -5,6 +5,7 @@ import { AppNavLink } from 'src/shared/ui/AppNavLink';
 import { LangSwitcher } from 'src/widgets/LangSwitcher';
 import { ThemeSwitcher } from 'src/widgets/ThemeSwitcher';
 import { UserButton } from 'src/widgets/UserButton';
+import { RoutePath } from 'src/shared/config/routeConfig';
 
 interface NavbarProps {
   className?: string;
@@ -20,13 +21,13 @@ const Navbar = ({ className }: NavbarProps) => {
     >
       <AppNavLink
         data-testid="main-link"
-        to="/"
+        to={RoutePath.main}
       >
         {t('Main')}
       </AppNavLink>
       <AppNavLink
         data-testid="about-link"
-        to="/about"
+        to={RoutePath.about}
       >
         {t('About us')}
       </AppNavLink>
