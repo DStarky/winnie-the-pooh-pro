@@ -11,7 +11,7 @@ interface NavbarProps {
 }
 
 const Navbar = ({ className }: NavbarProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('translation', { keyPrefix: 'navbar' });
 
   return (
     <header
@@ -22,13 +22,13 @@ const Navbar = ({ className }: NavbarProps) => {
         data-testid="main-link"
         to="/"
       >
-        {t('Main Page')}
+        {t('Main')}
       </AppNavLink>
       <AppNavLink
         data-testid="about-link"
         to="/about"
       >
-        {t('About Page')}
+        {t('About us')}
       </AppNavLink>
       <UserButton />
       <ThemeSwitcher />

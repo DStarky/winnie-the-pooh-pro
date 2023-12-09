@@ -5,7 +5,7 @@ const AboutPage = () => {
 
   return (
     <div data-testid="about-page">
-      <h1>{t('aboutUs')}</h1>
+      <h1>{t('About us')}</h1>
       <p>{t('lorem')}</p>
       <p>{t('helloWorld')}</p>
     </div>

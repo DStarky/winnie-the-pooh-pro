@@ -6,17 +6,18 @@
     "Change theme": "Change theme",
     "Change language": "Change language"
   },
-  "mainPage": {
-    "Main page": "Main page"
-  },
   "about": {
+    "About us": "About us",
     "helloWorld": "Hello world",
-    "aboutUs": "About us",
     "lorem": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus voluptatibus dolore dolor hic iure exercitationem corporis laboriosam tenetur officia odio eos esse, quos quam, sequi facilis amet dolores perspiciatis! Illum."
   },
   "auth": {
     "Log in": "Log in",
     "Username": "Username",
     "Password": "Password"
+  },
+  "navbar": {
+    "Main": "Main",
+    "About us": "Abous us"
   }
 }

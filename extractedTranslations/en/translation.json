@@ -1,12 +1,14 @@
 {
   "": "",
   "About Page": "",
+  "About us": "",
   "Change language": "",
   "Change theme": "",
   "ErrorBoundary": "",
   "Lan": "",
   "Lang": "",
   "Log in": "",
+  "Main": "",
   "Main Page": "",
   "Main page": "",
   "Page Not Found": "",
@@ -36,6 +38,14 @@
   "langSwitcher": "",
   "login": "",
   "lorem": "",
+  "mainMain Page": "",
+  "mainPage": {
+    "Main Page": "",
+    "Main page": ""
+  },
+  "navbar": {
+    "Main": ""
+  },
   "pageNotFound": "",
   "password": "",
   "reload": "",
