@@ -19,6 +19,7 @@ const config: StorybookConfig = {
   docs: {
     autodocs: 'tag',
   },
+
   // babel: async options => ({
   //   ...options,
   //   presets: [

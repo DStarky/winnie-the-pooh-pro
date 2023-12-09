@@ -1,11 +1,14 @@
-import type { Configuration, RuleSetRule } from 'webpack';
+import type { WebpackPluginInstance } from 'webpack';
+import { DefinePlugin, type Configuration, type RuleSetRule } from 'webpack';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 import path from 'path';
 import type { BuildPaths } from '../build/types/config';
 import { buildBabelLoader } from '../build/loaders/buildBabelLoader';
 import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
 
-export default ({ config }: { config: Configuration }) => {
+export default async ({ config }: { config: Configuration }) => {
+  const isDev = true;
+
   const paths: BuildPaths = {
     build: '',
     html: '',
@@ -41,6 +44,12 @@ export default ({ config }: { config: Configuration }) => {
   config.resolve.alias = {
     src: path.resolve(__dirname, '..', '..', 'src'),
   };
+
+  config?.plugins?.push(
+    new DefinePlugin({
+      __IS_DEV__: JSON.stringify(isDev),
+    }) as WebpackPluginInstance,
+  );
 
   return config;
 };
