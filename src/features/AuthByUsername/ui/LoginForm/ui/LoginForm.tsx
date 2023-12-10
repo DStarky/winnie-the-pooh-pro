@@ -11,6 +11,7 @@ import { Button, ThemeButton } from 'src/shared/ui/Button';
 import { classNames } from 'src/shared/lib/classNames/classNames';
 import { Input } from 'src/shared/ui/Input';
 import { Text, ThemeText } from 'src/shared/ui/Text';
+import { Title } from 'src/shared/ui/Title';
 
 interface LoginFormProps {
   className?: string;
@@ -53,16 +54,15 @@ const LoginForm = memo(function LoginForm({ className }: LoginFormProps) {
       data-testid="login-form"
       onSubmit={onSubmit}
     >
-      <div>
-        {loginError ? (
-          <Text
-            size="m"
-            theme={ThemeText.ERROR}
-          >
-            {loginError}
-          </Text>
-        ) : null}
-      </div>
+      <Title size="h4">{t('Log in')}</Title>
+      {loginError ? (
+        <Text
+          size="m"
+          theme={ThemeText.ERROR}
+        >
+          {loginError}
+        </Text>
+      ) : null}
       <Input
         placeholder={t('Username')}
         onChange={onChangeUsername}

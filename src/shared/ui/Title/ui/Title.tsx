@@ -18,7 +18,10 @@ interface TitleProps {
 const Title = (props: TitleProps) => {
   const { className, children, size: Tag = 'h3', theme = ThemeTitle.PRIMARY } = props;
   return (
-    <div className={classNames(styles.root, {}, [className, styles[theme]])}>
+    <div
+      className={classNames(styles.root, {}, [className, styles[theme]])}
+      data-testid="title"
+    >
       <Tag>{children}</Tag>
     </div>
   );

@@ -1,9 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'src/shared/lib/classNames/classNames';
 import { Title } from 'src/shared/ui/Title';
-import { useSelector } from 'react-redux';
-import { getUserAuthData } from 'src/entities/User';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserAuthData, userActions } from 'src/entities/User';
 import { ThemeTitle } from 'src/shared/ui/Title/ui/Title';
+import { Button, ThemeButton } from 'src/shared/ui/Button';
 
 interface MyAccountPageProps {
   className?: string;
@@ -12,6 +13,12 @@ interface MyAccountPageProps {
 const MyAccountPage = ({ className }: MyAccountPageProps) => {
   const { t } = useTranslation('translation', { keyPrefix: 'myAccountPage' });
   const authData = useSelector(getUserAuthData);
+  
+  const dispatch = useDispatch();
+
+  const onLogout = () => {
+    dispatch(userActions.logout());
+  };
 
   if (authData) {
     return (
@@ -22,6 +29,12 @@ const MyAccountPage = ({ className }: MyAccountPageProps) => {
         >
           {t('My account')}
         </Title>
+        <Button
+          theme={ThemeButton.FILLED}
+          onClick={onLogout}
+        >
+          {t('Log out')}
+        </Button>
       </div>
     );
   }

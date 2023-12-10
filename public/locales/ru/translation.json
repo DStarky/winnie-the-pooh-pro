@@ -22,6 +22,7 @@
   },
   "myAccountPage": {
     "My account": "Мой аккаунт",
-    "You must log in": "Необходимо авторизоваться"
+    "You must log in": "Необходимо авторизоваться",
+    "Log out": "Выйти из аккаунта"
   }
 }
