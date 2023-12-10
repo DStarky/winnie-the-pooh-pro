@@ -11,7 +11,11 @@ interface StoreProviderProps {
 
 const store = createReduxStore();
 
-const StoreProvider = ({ children }: StoreProviderProps) => <Provider store={store}>{children}</Provider>;
+const StoreProvider = ({ children, initialState }: StoreProviderProps) => {
+  const store = createReduxStore(initialState as StateSchema);
+
+  return <Provider store={store}>{children}</Provider>;
+};
 
 export default StoreProvider;
 export type DispatchType = typeof store.dispatch;
