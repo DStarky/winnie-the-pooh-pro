@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import styles from './Text.module.scss';
 import { classNames } from 'src/shared/lib/classNames/classNames';
 
@@ -15,7 +16,7 @@ interface TextProps {
   theme?: ThemeText;
 }
 
-const Text = (props: TextProps) => {
+const Text = memo(function Text(props: TextProps) {
   const { children, className, size = 'xs', theme = ThemeText.PRIMARY } = props;
 
   return (
@@ -26,6 +27,6 @@ const Text = (props: TextProps) => {
       {children ? <p className={classNames(styles.text, {}, [styles[size], styles[theme]])}>{children}</p> : null}
     </div>
   );
-};
+});
 
 export default Text;
