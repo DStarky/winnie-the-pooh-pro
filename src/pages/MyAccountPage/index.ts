@@ -1,1 +1,1 @@
-export { default as MyAccountPage } from './ui/MyAccountPage';
+export { MyAccountPageAsync as MyAccountPage } from './ui/MyAccountPage.async';

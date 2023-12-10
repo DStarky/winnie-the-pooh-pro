@@ -13,7 +13,7 @@ interface MyAccountPageProps {
 const MyAccountPage = ({ className }: MyAccountPageProps) => {
   const { t } = useTranslation('translation', { keyPrefix: 'myAccountPage' });
   const authData = useSelector(getUserAuthData);
-  
+
   const dispatch = useDispatch();
 
   const onLogout = () => {
@@ -22,7 +22,10 @@ const MyAccountPage = ({ className }: MyAccountPageProps) => {
 
   if (authData) {
     return (
-      <div className={classNames('', {}, [className])}>
+      <div
+        className={classNames('', {}, [className])}
+        data-testid="my-account-page"
+      >
         <Title
           size="h3"
           theme={ThemeTitle.PRIMARY}
@@ -39,7 +42,11 @@ const MyAccountPage = ({ className }: MyAccountPageProps) => {
     );
   }
 
-  return <Title>{t('You must log in')}</Title>;
+  return (
+    <div data-testid="my-account-page">
+      <Title>{t('You must log in')}</Title>
+    </div>
+  );
 };
 
 export default MyAccountPage;
