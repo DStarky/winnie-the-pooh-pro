@@ -3,7 +3,15 @@ import type { DeepPartial } from 'src/shared/types/DeepPartial';
 import { getLoginLoading } from './getLoginLoading';
 
 describe('getLoginLoading test', () => {
-  test('get isLoading', () => {
+  test('isLoading true', () => {
+    const state: DeepPartial<StateSchema> = {
+      loginForm: {
+        isLoading: true,
+      },
+    };
+    expect(getLoginLoading(state as StateSchema)).toEqual(true);
+  });
+  test('isLoading false', () => {
     const state: DeepPartial<StateSchema> = {
       loginForm: {
         isLoading: false,

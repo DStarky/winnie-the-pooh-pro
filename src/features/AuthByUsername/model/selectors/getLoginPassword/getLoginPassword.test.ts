@@ -11,4 +11,8 @@ describe('getLoginPassoword test', () => {
     };
     expect(getLoginPassword(state as StateSchema)).toEqual('qwerty');
   });
+  test('get empty state password', () => {
+    const state: DeepPartial<StateSchema> = {};
+    expect(getLoginPassword(state as StateSchema)).toEqual('');
+  });
 });

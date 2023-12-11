@@ -11,4 +11,8 @@ describe('getLoginUsername test', () => {
     };
     expect(getLoginUsername(state as StateSchema)).toEqual('admin');
   });
+  test('get using empty state', () => {
+    const state: DeepPartial<StateSchema> = {};
+    expect(getLoginUsername(state as StateSchema)).toEqual('');
+  });
 });
