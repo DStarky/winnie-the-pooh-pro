@@ -1,13 +1,4 @@
-import type {
-  ActionFromReducersMapObject,
-  AnyAction,
-  EnhancedStore,
-  PreloadedStateShapeFromReducersMapObject,
-  Reducer,
-  ReducersMapObject,
-  StateFromReducersMapObject,
-  UnknownAction,
-} from '@reduxjs/toolkit';
+import type { AnyAction, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import type { CounterSchema } from 'src/entities/Counter';
 import type { UserSchema } from 'src/entities/User';
 import type { LoginSchema } from 'src/features/AuthByUsername';
