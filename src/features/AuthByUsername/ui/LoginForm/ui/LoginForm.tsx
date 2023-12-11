@@ -1,5 +1,5 @@
-import { useDispatch, useSelector, useStore } from 'react-redux';
-import { memo, useCallback, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './LoginForm.module.scss';
 
@@ -12,30 +12,25 @@ import { classNames } from 'src/shared/lib/classNames/classNames';
 import { Input } from 'src/shared/ui/Input';
 import { Text, ThemeText } from 'src/shared/ui/Text';
 import { Title } from 'src/shared/ui/Title';
-import type { ReduxStoreWithManager } from 'src/app/providers/StoreProvider';
+import type { ReducersList } from 'src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import DynamicModuleLoader from 'src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 interface LoginFormProps {
   className?: string;
 }
 
+const initialReducers: ReducersList = {
+  loginForm: loginReducer,
+};
+
 const LoginForm = memo(function LoginForm({ className }: LoginFormProps) {
   const { t } = useTranslation('translation', { keyPrefix: 'auth' });
   const dispatch = useDispatch<DispatchType>();
 
-  const store = useStore() as ReduxStoreWithManager;
   const loginUsername = useSelector(getLoginUsername);
   const loginPassword = useSelector(getLoginPassword);
   const loginError = useSelector(getLoginError);
   const loginLoading = useSelector(getLoginLoading);
-
-  useEffect(() => {
-    store.reducerManager.add('loginForm', loginReducer);
-
-    return () => {
-      store.reducerManager.remove('loginForm');
-    };
-    //eslint-disable-next-line
-  }, []);
 
   const onChangeUsername = useCallback(
     (value: string) => {
@@ -61,39 +56,41 @@ const LoginForm = memo(function LoginForm({ className }: LoginFormProps) {
   );
 
   return (
-    <form
-      className={classNames(styles.root, {}, [className])}
-      data-testid="login-form"
-      onSubmit={onSubmit}
-    >
-      <Title size="h4">{t('Log in')}</Title>
-      {loginError ? (
-        <Text
-          size="m"
-          theme={ThemeText.ERROR}
-        >
-          {loginError}
-        </Text>
-      ) : null}
-      <Input
-        placeholder={t('Username')}
-        onChange={onChangeUsername}
-        value={loginUsername}
-      />
-      <Input
-        placeholder={t('Password')}
-        type="password"
-        onChange={onChangePassword}
-        value={loginPassword}
-      />
-      <Button
-        theme={ThemeButton.MODAL_FILLED}
-        type="submit"
-        disabled={loginLoading}
+    <DynamicModuleLoader reducers={initialReducers}>
+      <form
+        className={classNames(styles.root, {}, [className])}
+        data-testid="login-form"
+        onSubmit={onSubmit}
       >
-        {t('Log in')}
-      </Button>
-    </form>
+        <Title size="h4">{t('Log in')}</Title>
+        {loginError ? (
+          <Text
+            size="m"
+            theme={ThemeText.ERROR}
+          >
+            {loginError}
+          </Text>
+        ) : null}
+        <Input
+          placeholder={t('Username')}
+          onChange={onChangeUsername}
+          value={loginUsername}
+        />
+        <Input
+          placeholder={t('Password')}
+          type="password"
+          onChange={onChangePassword}
+          value={loginPassword}
+        />
+        <Button
+          theme={ThemeButton.MODAL_FILLED}
+          type="submit"
+          disabled={loginLoading}
+        >
+          {t('Log in')}
+        </Button>
+      </form>
+    </DynamicModuleLoader>
   );
 });
 
