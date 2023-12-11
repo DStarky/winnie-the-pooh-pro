@@ -49,11 +49,13 @@ const UserButton = ({ className }: UserButtonProps) => {
       >
         <UserIcon className={styles.icon} />
       </button>
-      <LoginModal
-        isOpen={isLoginModalOpen}
-        onClose={closeLoginModal}
-        lazy
-      />
+      {isLoginModalOpen ? (
+        <LoginModal
+          isOpen={isLoginModalOpen}
+          onClose={closeLoginModal}
+          lazy
+        />
+      ) : null}
     </>
   );
 };

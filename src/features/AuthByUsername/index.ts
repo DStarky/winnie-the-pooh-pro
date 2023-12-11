@@ -1,6 +1,5 @@
 export { LoginModal } from './ui/LoginModal';
 export { LoginSchema } from './model/types/loginSchema';
-export { loginReducer, loginActions } from './model/slice/loginSlice';
 export { getLoginState } from './model/selectors/getLoginState/getLoginState';
 export { getLoginError } from './model/selectors/getLoginError/getLoginError';
 export { getLoginLoading } from './model/selectors/getLoginLoading/getLoginLoading';

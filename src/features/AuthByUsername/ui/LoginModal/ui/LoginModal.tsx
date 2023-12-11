@@ -1,8 +1,8 @@
-import { classNames } from 'src/shared/lib/classNames/classNames';
 import { ModalWithPortal } from 'src/shared/ui/ModalWithPortal';
 import { LoginForm } from '../../LoginForm';
-import { memo } from 'react';
+import { Suspense, memo } from 'react';
 import type { ModalProps } from 'src/shared/ui/Modal/ui/Modal';
+import { Loader } from 'src/shared/ui/Loader';
 
 interface LoginModalProps extends ModalProps {}
 
@@ -11,10 +11,12 @@ const LoginModal = memo(function LoginModal({ className, isOpen, onClose, lazy }
     <ModalWithPortal
       isOpen={isOpen}
       onClose={onClose}
-      className={classNames('', {}, [className])}
+      className={className}
       lazy={lazy}
     >
-      <LoginForm />
+      <Suspense fallback={<Loader />}>
+        <LoginForm />
+      </Suspense>
     </ModalWithPortal>
   );
 });
