@@ -1,10 +1,13 @@
 import { Loader } from 'src/shared/ui/Loader';
 import styles from './PageLoader.module.scss';
+import { memo } from 'react';
 
-const PageLoader = () => (
-  <div className={styles.root}>
-    <Loader />
-  </div>
-);
+const PageLoader = memo(function PageLoader() {
+  return (
+    <div className={styles.root}>
+      <Loader />
+    </div>
+  );
+});
 
 export default PageLoader;
