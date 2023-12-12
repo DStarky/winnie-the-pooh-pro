@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import styles from './Title.module.scss';
 import { classNames } from 'src/shared/lib/classNames/classNames';
 
@@ -16,7 +17,7 @@ interface TitleProps {
   theme?: ThemeTitle;
 }
 
-const Title = (props: TitleProps) => {
+const Title = memo(function Title (props: TitleProps) {
   const { className, children, size: Tag = 'h3', theme = ThemeTitle.PRIMARY } = props;
   return (
     <div
@@ -26,6 +27,6 @@ const Title = (props: TitleProps) => {
       <Tag>{children}</Tag>
     </div>
   );
-};
+});
 
 export default Title;
