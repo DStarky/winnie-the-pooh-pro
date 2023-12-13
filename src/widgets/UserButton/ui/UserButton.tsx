@@ -2,7 +2,7 @@ import styles from './UserButton.module.scss';
 import { classNames } from 'src/shared/lib/classNames/classNames';
 import UserIcon from 'src/shared/assets/icons/user-circle.svg';
 import { LoginModal } from 'src/features/AuthByUsername';
-import { useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { getUserAuthData } from 'src/entities/User';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -12,7 +12,7 @@ interface UserButtonProps {
   className?: string;
 }
 
-const UserButton = ({ className }: UserButtonProps) => {
+const UserButton = memo(function UserButton({ className }: UserButtonProps) {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const authData = useSelector(getUserAuthData);
 
@@ -58,6 +58,6 @@ const UserButton = ({ className }: UserButtonProps) => {
       ) : null}
     </>
   );
-};
+});
 
 export default UserButton;

@@ -6,12 +6,13 @@ import { LangSwitcher } from 'src/widgets/LangSwitcher';
 import { ThemeSwitcher } from 'src/widgets/ThemeSwitcher';
 import { UserButton } from 'src/widgets/UserButton';
 import { RoutePath } from 'src/shared/config/routeConfig';
+import { memo } from 'react';
 
 interface NavbarProps {
   className?: string;
 }
 
-const Navbar = ({ className }: NavbarProps) => {
+const Navbar = memo(function Navbar({ className }: NavbarProps) {
   const { t } = useTranslation('translation', { keyPrefix: 'navbar' });
 
   return (
@@ -36,5 +37,5 @@ const Navbar = ({ className }: NavbarProps) => {
       <LangSwitcher />
     </header>
   );
-};
+});
 export default Navbar;
