@@ -5,15 +5,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'src/entities/User';
 import { ThemeTitle } from 'src/shared/ui/Title/ui/Title';
 import { Button, ThemeButton } from 'src/shared/ui/Button';
+import { memo } from 'react';
 
 interface MyAccountPageProps {
   className?: string;
 }
 
-const MyAccountPage = ({ className }: MyAccountPageProps) => {
+const MyAccountPage = memo(function MyAccountPage({ className }: MyAccountPageProps) {
   const { t } = useTranslation('translation', { keyPrefix: 'myAccountPage' });
   const authData = useSelector(getUserAuthData);
- 
+
   const dispatch = useDispatch();
 
   const onLogout = () => {
@@ -47,6 +48,6 @@ const MyAccountPage = ({ className }: MyAccountPageProps) => {
       <Title>{t('You must log in')}</Title>
     </div>
   );
-};
+});
 
 export default MyAccountPage;
