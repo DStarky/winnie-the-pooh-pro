@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './LoginForm.module.scss';
