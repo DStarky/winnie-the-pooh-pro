@@ -9,8 +9,6 @@ interface StoreProviderProps {
   initialState?: DeepPartial<StateSchema>;
 }
 
-const store = createReduxStore();
-
 const StoreProvider = ({ children, initialState }: StoreProviderProps) => {
   const store = createReduxStore(initialState as StateSchema);
 
@@ -18,4 +16,3 @@ const StoreProvider = ({ children, initialState }: StoreProviderProps) => {
 };
 
 export default StoreProvider;
-export type DispatchType = typeof store.dispatch;

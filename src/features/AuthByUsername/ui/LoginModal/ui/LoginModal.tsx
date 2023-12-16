@@ -15,7 +15,7 @@ const LoginModal = memo(function LoginModal({ className, isOpen, onClose, lazy }
       lazy={lazy}
     >
       <Suspense fallback={<Loader />}>
-        <LoginForm />
+        <LoginForm onSuccess={onClose} />
       </Suspense>
     </ModalWithPortal>
   );

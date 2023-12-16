@@ -3,7 +3,6 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './LoginForm.module.scss';
 
-import type { DispatchType } from 'src/app/providers/StoreProvider/ui/StoreProvider';
 import { loginActions, loginReducer } from '../../../model/slice/loginSlice';
 import { getLoginUsername, getLoginPassword, getLoginError, getLoginLoading, loginByUsername } from '../../../index';
 
@@ -14,18 +13,20 @@ import { Text, ThemeText } from 'src/shared/ui/Text';
 import { Title } from 'src/shared/ui/Title';
 import type { ReducersList } from 'src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import DynamicModuleLoader from 'src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'src/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 interface LoginFormProps {
   className?: string;
+  onSuccess?: () => void;
 }
 
 const initialReducers: ReducersList = {
   loginForm: loginReducer,
 };
 
-const LoginForm = memo(function LoginForm({ className }: LoginFormProps) {
+const LoginForm = memo(function LoginForm({ className, onSuccess }: LoginFormProps) {
   const { t } = useTranslation('translation', { keyPrefix: 'auth' });
-  const dispatch = useDispatch<DispatchType>();
+  const dispatch = useAppDispatch();
 
   const loginUsername = useSelector(getLoginUsername);
   const loginPassword = useSelector(getLoginPassword);
@@ -47,12 +48,16 @@ const LoginForm = memo(function LoginForm({ className }: LoginFormProps) {
   );
 
   const onSubmit = useCallback(
-    (e: React.FormEvent<HTMLFormElement>) => {
+    async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      dispatch(loginByUsername({ username: loginUsername, password: loginPassword }));
+      const result = await dispatch(loginByUsername({ username: loginUsername, password: loginPassword }));
+
+      if (result.meta.requestStatus === 'fulfilled') {
+        onSuccess();
+      }
     },
-    [dispatch, loginUsername, loginPassword],
+    [onSuccess, dispatch, loginUsername, loginPassword],
   );
 
   return (
