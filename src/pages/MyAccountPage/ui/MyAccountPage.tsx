@@ -6,6 +6,13 @@ import { getUserAuthData, userActions } from 'src/entities/User';
 import { ThemeTitle } from 'src/shared/ui/Title/ui/Title';
 import { Button, ThemeButton } from 'src/shared/ui/Button';
 import { memo } from 'react';
+import type { ReducersList } from 'src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import DynamicModuleLoader from 'src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { profileReducer } from 'src/entities/Profile';
+
+const reducers: ReducersList = {
+  profile: profileReducer,
+};
 
 interface MyAccountPageProps {
   className?: string;
@@ -23,23 +30,25 @@ const MyAccountPage = memo(function MyAccountPage({ className }: MyAccountPagePr
 
   if (authData) {
     return (
-      <div
-        className={classNames('', {}, [className])}
-        data-testid="my-account-page"
-      >
-        <Title
-          size="h3"
-          theme={ThemeTitle.PRIMARY}
+      <DynamicModuleLoader reducers={reducers}>
+        <div
+          className={classNames('', {}, [className])}
+          data-testid="my-account-page"
         >
-          {t('My account')}
-        </Title>
-        <Button
-          theme={ThemeButton.FILLED}
-          onClick={onLogout}
-        >
-          {t('Log out')}
-        </Button>
-      </div>
+          <Title
+            size="h3"
+            theme={ThemeTitle.PRIMARY}
+          >
+            {t('My account')}
+          </Title>
+          <Button
+            theme={ThemeButton.FILLED}
+            onClick={onLogout}
+          >
+            {t('Log out')}
+          </Button>
+        </div>
+      </DynamicModuleLoader>
     );
   }
 
