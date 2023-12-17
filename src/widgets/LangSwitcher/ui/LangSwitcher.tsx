@@ -1,13 +1,9 @@
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { classNames } from 'src/shared/lib/classNames/classNames';
 import { Button, ThemeButton } from 'src/shared/ui/Button';
 
-interface LangSwitcherProps {
-  className?: string;
-}
-
-const LangSwitcher = ({ className }: LangSwitcherProps) => {
+const LangSwitcher = memo(function LangSwitcher() {
   const { t, i18n } = useTranslation('translation', { keyPrefix: 'buttons' });
 
   const toggleLang = () => {
@@ -15,13 +11,12 @@ const LangSwitcher = ({ className }: LangSwitcherProps) => {
   };
   return (
     <Button
-      className={classNames('', {}, [className])}
       onClick={toggleLang}
       theme={ThemeButton.OUTLINE}
     >
       {t('Change language')}
     </Button>
   );
-};
+});
 
 export default LangSwitcher;

@@ -13,7 +13,7 @@ interface MyAccountPageProps {
 const MyAccountPage = ({ className }: MyAccountPageProps) => {
   const { t } = useTranslation('translation', { keyPrefix: 'myAccountPage' });
   const authData = useSelector(getUserAuthData);
-
+ 
   const dispatch = useDispatch();
 
   const onLogout = () => {

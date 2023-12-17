@@ -11,6 +11,12 @@
     }
   }
 
+  &.form {
+    &>* {
+      color: var(--title-color-form);
+    }
+  }
+
   & h1 {
     font: var(--h1);
   }

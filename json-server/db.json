@@ -26,6 +26,15 @@
     }
   ],
   "profile": {
-    "name": "typicode"
+    "first": "Иван",
+    "last": "Иванов",
+    "phone": "+12345678985",
+    "email": "ivanov@gmail.com",
+    "address": "Ленина 1",
+    "country": "Russia",
+    "city": "Orenburg",
+    "region": "Orenburg",
+    "zipcode": "460000",
+    "avatar": "https://cs13.pikabu.ru/avatars/3115/x3115547-738915255.png"
   }
 }

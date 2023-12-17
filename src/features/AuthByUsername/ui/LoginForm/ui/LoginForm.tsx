@@ -14,6 +14,7 @@ import { Title } from 'src/shared/ui/Title';
 import type { ReducersList } from 'src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import DynamicModuleLoader from 'src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'src/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { ThemeTitle } from 'src/shared/ui/Title/ui/Title';
 
 interface LoginFormProps {
   className?: string;
@@ -67,7 +68,12 @@ const LoginForm = memo(function LoginForm({ className, onSuccess }: LoginFormPro
         data-testid="login-form"
         onSubmit={onSubmit}
       >
-        <Title size="h4">{t('Log in')}</Title>
+        <Title
+          theme={ThemeTitle.FORM}
+          size="h4"
+        >
+          {t('Log in')}
+        </Title>
         {loginError ? (
           <Text
             size="m"

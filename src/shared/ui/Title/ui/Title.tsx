@@ -4,6 +4,7 @@ import { classNames } from 'src/shared/lib/classNames/classNames';
 export enum ThemeTitle {
   PRIMARY = 'primary',
   ERROR = 'error',
+  FORM = 'form'
 }
 
 export type TitleSizes = 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
