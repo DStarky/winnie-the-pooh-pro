@@ -5,10 +5,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'src/entities/User';
 import { ThemeTitle } from 'src/shared/ui/Title/ui/Title';
 import { Button, ThemeButton } from 'src/shared/ui/Button';
-import { memo } from 'react';
+import { memo, useEffect } from 'react';
 import type { ReducersList } from 'src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import DynamicModuleLoader from 'src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { profileReducer } from 'src/entities/Profile';
+import { fetchProfileData, profileReducer } from 'src/entities/Profile';
+import { useAppDispatch } from 'src/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 const reducers: ReducersList = {
   profile: profileReducer,
@@ -21,8 +22,11 @@ interface MyAccountPageProps {
 const MyAccountPage = memo(function MyAccountPage({ className }: MyAccountPageProps) {
   const { t } = useTranslation('translation', { keyPrefix: 'myAccountPage' });
   const authData = useSelector(getUserAuthData);
+  const dispatch = useAppDispatch();
 
-  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchProfileData());
+  }, [dispatch]);
 
   const onLogout = () => {
     dispatch(userActions.logout());

@@ -8,7 +8,7 @@ import { ErrorBoundary } from './app/providers/ErrorBoundary';
 import { ErrorPage } from './widgets/ErrorPage';
 import { StoreProvider } from './app/providers/StoreProvider';
 
-const container = document.getElementById('root');
+const container = document.getElementById('root') as HTMLElement; 
 const root = createRoot(container);
 
 root.render(
