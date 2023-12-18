@@ -12,13 +12,13 @@ const container = document.getElementById('root');
 const root = createRoot(container);
 
 root.render(
-  <StoreProvider>
-    <BrowserRouter>
+  <BrowserRouter>
+    <StoreProvider>
       <ErrorBoundary fallback={<ErrorPage />}>
         <Theme>
           <App />
         </Theme>
       </ErrorBoundary>
-    </BrowserRouter>
-  </StoreProvider>,
+    </StoreProvider>
+  </BrowserRouter>,
 );

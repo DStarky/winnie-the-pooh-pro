@@ -50,7 +50,7 @@ module.exports = {
       }
     ],
     // REACT Linting rules
-  
+
     "react/button-has-type": "warn",
     "react/prop-types": "off",
     "react/self-closing-comp": ["error", { "component": true, "html": true }],

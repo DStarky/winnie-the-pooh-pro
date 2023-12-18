@@ -2,11 +2,7 @@ import type webpack from 'webpack';
 import path from 'path';
 
 import { buildWebpackConfig } from './config/build/buildWebpackConfig';
-import type {
-  BuildEnv,
-  BuildMode,
-  BuildPaths,
-} from './config/build/types/config';
+import type { BuildEnv, BuildMode, BuildPaths } from './config/build/types/config';
 
 export default (env: BuildEnv) => {
   // Задаем мод
@@ -24,11 +20,14 @@ export default (env: BuildEnv) => {
 
   // Автоматическая проверка на isDev
   const isDev = mode === 'development';
+  // Задаем url для отправки на сервер
+  const apiUrl = env.apiUrl || 'http://localhost:8000';
 
   const options = {
     mode,
     paths,
     isDev,
+    apiUrl,
     port: PORT,
   };
 

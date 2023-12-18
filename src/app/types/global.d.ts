@@ -1,14 +1,14 @@
 declare module '*.module.scss' {
-	interface IClassName {
-		[className: string]: string;
-	}
-	const classNames: IClassName;
-	export = classNames;
+  interface IClassName {
+    [className: string]: string;
+  }
+  const classNames: IClassName;
+  export = classNames;
 }
 declare module '*.svg' {
-	import type React from 'react';
-	const SVG: React.VFC<React.SVGProps<SVGSVGElement>>;
-	export default SVG;
+  import type React from 'react';
+  const SVG: React.VFC<React.SVGProps<SVGSVGElement>>;
+  export default SVG;
 }
 
 declare module '*.png';
@@ -17,3 +17,4 @@ declare module '*.jpeg';
 declare module '*.gif';
 
 declare const __IS_DEV__: boolean;
+declare const __API__: string;
