@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'src/shared/lib/classNames/classNames';
 import { Title } from 'src/shared/ui/Title';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'src/entities/User';
 import { ThemeTitle } from 'src/shared/ui/Title/ui/Title';
 import { Button, ThemeButton } from 'src/shared/ui/Button';

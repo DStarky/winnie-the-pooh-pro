@@ -30,7 +30,7 @@ export function createReduxStore(initialState?: StateSchema, navigate?: (to: To,
       }),
   });
 
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // eslint-gisable-next-line @typescript-eslint/ban-ts-comment
   //@ts-ignore
   store.reducerManager = reducerManager;
 
